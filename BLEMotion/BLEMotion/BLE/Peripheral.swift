@@ -62,9 +62,10 @@ extension Peripheral {
                 let yData = data.subdata(in: 8..<16)
                 let zData = data.subdata(in: 16..<24)
                 
-                let x = xData.to(type: Double.self)
-                let y = yData.to(type: Double.self)
-                let z = zData.to(type: Double.self)
+                guard let x = xData.to(type: Double.self), let y = yData.to(type: Double.self), let z = zData.to(type: Double.self) else {
+                    print("Failed to convert data to doubles: \(data.hexEncodedString())")
+                    return
+                }
                 
                 print("x: \(x) y: \(y) z:\(z)")
                 
