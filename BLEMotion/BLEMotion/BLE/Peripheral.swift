@@ -9,17 +9,11 @@
 import Foundation
 import CoreBluetooth
 
-protocol PeripheralDelegate {
-    func newMotionPoint(x: Double, y: Double, z: Double)
-}
-
 public class Peripheral: NSObject, CBPeripheralDelegate {
     
     let cbPeripheral: CBPeripheral
     var advertisementData: [String : Any]
     var RSSI: Float
-    
-    var delegate: PeripheralDelegate?
     
     var motionService: CBService?
     var motionCharacteristic: CBCharacteristic?
@@ -69,7 +63,9 @@ extension Peripheral {
                 
                 print("x: \(x) y: \(y) z:\(z)")
                 
-                delegate?.newMotionPoint(x: x, y: y, z: z)
+                let motionPoint = MotionPoint(x: x, y: y, z: z, peripheralUUID: peripheral.identifier.uuidString)
+                
+                NotificationCenter.default.post(name: .newMotionPoint, object: motionPoint)
             }
         }
     }

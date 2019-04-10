@@ -20,6 +20,8 @@
 		BE66AB9D2227261200B5B427 /* SynchronizedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66AB9C2227261200B5B427 /* SynchronizedDictionary.swift */; };
 		BE66ABBF22274F9D00B5B427 /* VisualizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66ABBE22274F9D00B5B427 /* VisualizeViewController.swift */; };
 		BE66ABC32228351A00B5B427 /* PeripheralListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE66ABC22228351A00B5B427 /* PeripheralListViewController.swift */; };
+		BEC4CF04225E34C900DC6B91 /* PeripheralDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4CF03225E34C900DC6B91 /* PeripheralDetailViewController.swift */; };
+		BEC4CF06225E3F8C00DC6B91 /* MotionPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC4CF05225E3F8C00DC6B91 /* MotionPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		BE66AB9C2227261200B5B427 /* SynchronizedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedDictionary.swift; sourceTree = "<group>"; };
 		BE66ABBE22274F9D00B5B427 /* VisualizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizeViewController.swift; sourceTree = "<group>"; };
 		BE66ABC22228351A00B5B427 /* PeripheralListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralListViewController.swift; sourceTree = "<group>"; };
+		BEC4CF03225E34C900DC6B91 /* PeripheralDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralDetailViewController.swift; sourceTree = "<group>"; };
+		BEC4CF05225E3F8C00DC6B91 /* MotionPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				BE66AB822226EBC500B5B427 /* MainViewController.swift */,
 				BE66ABC22228351A00B5B427 /* PeripheralListViewController.swift */,
+				BEC4CF03225E34C900DC6B91 /* PeripheralDetailViewController.swift */,
 				BE66ABBE22274F9D00B5B427 /* VisualizeViewController.swift */,
 			);
 			path = "View Controllers";
@@ -100,6 +105,7 @@
 				BE66AB922226F18900B5B427 /* BluetoothManager.swift */,
 				BE66AB942226F1E500B5B427 /* BluetoothPeripheralManager.swift */,
 				BE66AB9A2227259D00B5B427 /* Peripheral.swift */,
+				BEC4CF05225E3F8C00DC6B91 /* MotionPoint.swift */,
 			);
 			path = BLE;
 			sourceTree = "<group>";
@@ -184,9 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC4CF06225E3F8C00DC6B91 /* MotionPoint.swift in Sources */,
 				BE66ABC32228351A00B5B427 /* PeripheralListViewController.swift in Sources */,
 				BE66AB952226F1E500B5B427 /* BluetoothPeripheralManager.swift in Sources */,
 				BE66AB9B2227259D00B5B427 /* Peripheral.swift in Sources */,
+				BEC4CF04225E34C900DC6B91 /* PeripheralDetailViewController.swift in Sources */,
 				BE66AB9922271EAB00B5B427 /* Extensions.swift in Sources */,
 				BE66AB9722271D8B00B5B427 /* MotionManager.swift in Sources */,
 				BE66AB832226EBC500B5B427 /* MainViewController.swift in Sources */,

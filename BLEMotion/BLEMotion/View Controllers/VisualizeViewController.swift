@@ -9,13 +9,9 @@
 import UIKit
 import SceneKit
 
-class VisualizeViewController: UIViewController, PeripheralDelegate {
+class VisualizeViewController: UIViewController {
     
-    var peripheral: Peripheral? {
-        didSet {
-            peripheral?.delegate = self
-        }
-    }
+    var peripheral: Peripheral?
     
     @IBOutlet var scnView: SCNView!
     var scnScene: SCNScene!
@@ -40,6 +36,8 @@ class VisualizeViewController: UIViewController, PeripheralDelegate {
         if let peripheral = peripheral {
             BluetoothManager.sharedInstance.connect(peripheral: peripheral)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newMotionPoint(notification:)), name: .newMotionPoint, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,6 +46,8 @@ class VisualizeViewController: UIViewController, PeripheralDelegate {
         if let peripheral = peripheral {
             BluetoothManager.sharedInstance.disconnect(peripheral: peripheral)
         }
+        
+        NotificationCenter.default.removeObserver(self, name: .newMotionPoint, object: nil)
     }
     
     func setupScene() {
@@ -94,12 +94,14 @@ class VisualizeViewController: UIViewController, PeripheralDelegate {
             return .all
         }
     }
-}
-
-extension VisualizeViewController {
-    func newMotionPoint(x: Double, y: Double, z: Double) {
-        DispatchQueue.main.async {
-            self.boxNode.eulerAngles = SCNVector3(x, y, -1 * z)
+    
+    @objc func newMotionPoint(notification: Notification) {
+        if let motionPoint = notification.object as? MotionPoint {
+            if motionPoint.peripheralUUID == peripheral?.uuid {
+                DispatchQueue.main.async {
+                    self.boxNode.eulerAngles = SCNVector3(motionPoint.x, motionPoint.y, -1 * motionPoint.z)
+                }
+            }
         }
     }
 }

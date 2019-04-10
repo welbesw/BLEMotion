@@ -37,4 +37,5 @@ extension Data {
 extension Notification.Name {
     static let peripheralAdded = Notification.Name("perhipheralAdded")
     static let peripheralUpdated = Notification.Name("perhipheralUpdated")
+    static let newMotionPoint = Notification.Name("newMotionPoint")
 }
