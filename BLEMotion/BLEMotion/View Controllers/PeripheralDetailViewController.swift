@@ -51,9 +51,9 @@ class PeripheralDetailViewController: UIViewController {
         if let motionPoint = notification.object as? MotionPoint {
             if motionPoint.peripheralUUID == peripheral?.uuid {
                 DispatchQueue.main.async {
-                    self.xValueLabel.text = String(format: "%0.8f", motionPoint.x)
-                    self.yValueLabel.text = String(format: "%0.8f", motionPoint.y)
-                    self.zValueLabel.text = String(format: "%0.8f", motionPoint.z)
+                    self.xValueLabel.text = String(format: "%0.5f", motionPoint.x)
+                    self.yValueLabel.text = String(format: "%0.5f", motionPoint.y)
+                    self.zValueLabel.text = String(format: "%0.5f", motionPoint.z)
                 }
             }
         }
