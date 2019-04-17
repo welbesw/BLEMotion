@@ -56,7 +56,7 @@ class VisualizeViewController: UIViewController {
         
         scnView.backgroundColor = .white
         
-        scnView.showsStatistics = true
+        scnView.showsStatistics = false
         scnView.allowsCameraControl = true
         scnView.autoenablesDefaultLighting = true
     }
